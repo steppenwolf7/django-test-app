@@ -15,14 +15,17 @@ def product_detail_view(request):
 
 
 def product_create_view(request):
-    form = RawProductForm(request.POST or None)
-    if form.is_valid():
-       form.save()
-       form = RawProductForm()
-
-    context = { 
+    form = RawProductForm()
+    if request.method == "POST":
+      form = RawProductForm(request.POST)
+      if form.is_valid():
+        print(form.clean_data)
+        Products.objects.create(**form.cleaned_data)
+      else:
+        print(form.errors)
+    context = {
       'form': form
-    }      
+    }
     return render(request, "product/product_create.html", context)
 
 
