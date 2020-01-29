@@ -1,10 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404 #redirect 
 from .models import Products
 from .forms import ProductsForm, RawProductForm
-# Create your views here.
+#from django.http import Http404
 
-def product_detail_view(request):
-    obj = Products.objects.get(id=4)
+def product_detail_view(request,id):
+    
+    obj =  get_object_or_404(Products, id=id)
+      #return redirect('../../')
+    
+    
+    #try:
+    #   obj = Products.objects.get(id=id)
+    #except Products.DoesNotExist:
+    #   raise Http404
     context = {
         'object': obj
     } 
@@ -29,9 +37,11 @@ def product_create_view(request):
     return render(request, "product/product_create.html", context)
 
 
-
-
-
+def product_list_view(request):
+    number = 1
+    queryset = Products.objects.all()              # geting list of objects 
+    context = {"object_list": queryset, "numberone": number}
+    return render(request, "product/product_list.html", context)
 
 
 
