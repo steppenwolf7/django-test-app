@@ -6,21 +6,19 @@ from .forms import ProductsForm, RawProductForm
 def product_detail_view(request,id):
     
     obj =  get_object_or_404(Products, id=id)
-      #return redirect('../../')
-    
-    
-    #try:
-    #   obj = Products.objects.get(id=id)
-    #except Products.DoesNotExist:
-    #   raise Http404
     context = {
         'object': obj
-    } 
-                                                          #context = {
-                                                        #   'title': obj.title,
-                                                           #  'description': obj.description
-    return render(request, "product/detail.html", context)
-
+    }                                                          #return redirect('../../')
+    return render(request, "product/detail.html", context) 
+    
+                                                                  #try:
+                                                              #   obj = Products.objects.get(id=id)
+                                                              #except Products.DoesNotExist:
+                                                              #   raise Http404
+                                                              #context = {
+                                                              #   'title': obj.title,
+                                                              #  'description': obj.description
+    
 
 def product_create_view(request):
     form = RawProductForm()

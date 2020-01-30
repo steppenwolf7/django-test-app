@@ -2,11 +2,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+h2 { color: rgb(170, 229, 240);}
+</style>
 
-
-
+<h2>List of items</h2>
 {% for instance in object_list %}
-    <h1>{{ instance.id }} - {{ instance.title }}</h1>
-{% endfor %}
-
+   
+       <h1>{{ instance.id }} - <a href='{{ instance.get_absolute_url }}'>{{ instance.title }}</a></h1>
+   <!--
+    <h1>{{ instance.id }} - <a href='/product/{{ instance.id }}/'>{{ instance.title }}</a></h1>
+   -->
+    {% endfor %}
+   
 {% endblock %}
