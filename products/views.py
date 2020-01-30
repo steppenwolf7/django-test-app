@@ -38,9 +38,8 @@ def product_create_view(request):
 
 
 def product_list_view(request):
-    number = 1
     queryset = Products.objects.all()              # geting list of objects 
-    context = {"object_list": queryset, "numberone": number}
+    context = {"object_list": queryset}
     return render(request, "product/product_list.html", context)
 
 

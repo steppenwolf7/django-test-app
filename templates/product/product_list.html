@@ -2,10 +2,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ queryset }}</h1>
-<h1>{{ numberone }}</h1>
 
-{% for instance in queryset %}
-    <p>{{ instance.id }} - {{ instance.tittle }}</p>
+
+
+{% for instance in object_list %}
+    <h1>{{ instance.id }} - {{ instance.title }}</h1>
 {% endfor %}
+
 {% endblock %}
