@@ -3,6 +3,9 @@ from .models import Products
 from .forms import ProductsForm, RawProductForm
 #from django.http import Http404
 
+
+
+
 def product_detail_view(request,id):
     
     obj =  get_object_or_404(Products, id=id)
@@ -18,9 +21,9 @@ def product_detail_view(request,id):
                                                               #context = {
                                                               #   'title': obj.title,
                                                               #  'description': obj.description
-    
-
-def product_create_view(request):
+                                                              # 
+                                                              # def product_create_view(request):
+def product_create_view(request):    
     form = RawProductForm()
     if request.method == "POST":
       form = RawProductForm(request.POST)

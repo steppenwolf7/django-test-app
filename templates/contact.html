@@ -1,5 +1,5 @@
 
-{% include 'navbar.html' %}
+{% extends 'base.html' %}
 
 
 {% block content %}
@@ -8,11 +8,11 @@
     <h4>{{ kay }}, {{ klucz }}</h4>
 
    <ul>
-       {% for my_sub_item in list %}
-       <li>{{ my_sub_item }}</li>
+       {% for i in list %}
+       <li>{{ i }}</li>
         {% endfor %}
     </ul>
    
    
    
-    {% endblock content%}
+    {% endblock %}
