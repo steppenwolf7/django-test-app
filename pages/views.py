@@ -5,9 +5,10 @@ from django.shortcuts import render
 
 # Create your views here.
 def home_page(request, *args, **kwargs):
+    example = runpy._get_module_details('this')
     python =  { 
-        "zen": dir(this)
-                }
+         "zen": example
+              }
     return render(request, "home.html", python)
 
 def about(request, *args, **kwargs):
@@ -22,4 +23,3 @@ def contact(request, *args, **kwargs):
     return render(request, "contact.html", dictionary)    
 
 
-print()
