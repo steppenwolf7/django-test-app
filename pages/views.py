@@ -1,11 +1,11 @@
 import runpy, sys
-import this  
+import this as rp  
 from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 def home_page(request, *args, **kwargs):
-    example = runpy._get_module_details('this')
+    example = runpy.run_module('this', run_name='__main__')
     python =  { 
          "zen": example
               }

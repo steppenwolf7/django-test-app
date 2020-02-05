@@ -9,9 +9,9 @@ class Products(models.Model):
     description = models.TextField()
     price       = models.DecimalField(null=False, decimal_places=2, max_digits=1000)
     
-   # def get_absolute_url(self):
-        #return reverse("detail", kwargs={"id": self.id})
+    def get_absolute_url(self):
+        return reverse("products:detail", kwargs={"id": self.id})
 
       
-    # blank=False - pole jest wymagane w panelu admin
-    # null=False - pole moze być puste w bazie danych  
+# blank=False - pole jest wymagane w panelu admin
+# null=False - pole moze być puste w bazie danych  
