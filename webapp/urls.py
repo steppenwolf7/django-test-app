@@ -19,7 +19,7 @@ from pages.views import home_page, contact, about
 #from products.views import product_detail_view, product_create_view, product_list_view
 
 urlpatterns = [
-    path('product/', include('products.urls')),
+    path('products/', include('products.urls')),
 
     path('admin/', admin.site.urls),
     path('', home_page, name='home'),

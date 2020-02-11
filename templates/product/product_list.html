@@ -10,7 +10,7 @@ h2 { color: rgb(170, 229, 240);}
    
        <h1>{{ i.id }} - <a href='{{ i.get_absolute_url }}'>{{ i.title }}</a></h1>
    <!--
-    <h1>{{ instance.id }} - <a href='/product/{{ instance.id }}/'>{{ instance.title }}</a></h1>
+    <h1>{{ i.id }} - <a href='/product/{{ i.id }}/'>{{ i.title }}</a></h1>
    -->
     {% endfor %}
    
