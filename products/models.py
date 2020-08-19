@@ -11,6 +11,10 @@ class Products(models.Model):
     
     def get_absolute_url(self):
         return reverse("products:detail", kwargs={"id": self.id})
+    
+    
+
+
 #Reverse for 'detail' not found. 'detail' is not a valid view function or pattern name.
       
 # blank=False - pole jest wymagane w panelu admin

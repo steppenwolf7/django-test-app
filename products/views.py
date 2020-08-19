@@ -1,13 +1,16 @@
 from django.shortcuts import render, get_object_or_404 #redirect 
 from .models import Products
-from .forms import ProductsForm, RawProductForm
+from .forms import ProductsForm
+from django.views.generic import (
+  CreateView
+)
+#from django.urls import reverse
 #from django.http import Http404
 
 
 
 
 def product_detail_view(request,id):
-    
     obj =  get_object_or_404(Products, id=id)
     context = {
         'object': obj
@@ -29,12 +32,25 @@ def product_create_view(request):
     }
     return render(request, "product/product_create.html", context)
 
+class ProductCreateView(CreateView):
+    template_name = 'product/product_class_create.html'
+    form_class = ProductsForm
+    queryset = Products.objects.all() # <blog>/<modelname>_list.html
+    #success_url = '/'
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+
+
+
 
 def product_list_view(request):
     queryset = Products.objects.all()              # geting list of objects 
     context = {
       "object_list": queryset
-    }
+     }
     return render(request, "product/product_list.html", context)
 
 
