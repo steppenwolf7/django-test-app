@@ -55,26 +55,27 @@ def product_list_view(request):
 
 
 
+"""
+def product_create_view(request):
+     form = ProductsForm(request.POST or None)
+     if form.is_valid():
+        form.save()
+        form =ProductsForm()
 
-# def product_create_view(request):
-#     form = ProductsForm(request.POST or None)
-#     if form.is_valid():
-#        form.save()
-#        form =ProductsForm()
-
-#     context = { 
-#       'form': form
-#     }      
-#     return render(request, "product/product_create.html", context)    
-#try:
+     context = { 
+       'form': form
+     }      
+     return render(request, "product/product_create.html", context)    
+try:
   
   
-# product_detail_view  
-#   obj = Products.objects.get(id=id)
-#except Products.DoesNotExist:
-#   raise Http404
-#context = {
-#   'title': obj.title,
-#  'description': obj.description
+ product_detail_view  
+   obj = Products.objects.get(id=id)
+except Products.DoesNotExist:
+   raise Http404
+context = {
+   'title': obj.title,
+  'description': obj.description
                                                             
-# def product_create_view(request):
+def product_create_view(request):
+"""
